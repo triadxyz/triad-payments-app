@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "bsc",
+    "slug": "bsc",
+    "scheme": "myapp",
+    "version": "1.0.0",
+    "icon": "./assets/icon.png",
+    "runtimeVersion": "exposdk:50.0.7",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "cover",
+      "backgroundColor": "#fff",
+      "image": "./assets/splash.png"
+    },
+    "assetBundlePatterns": [
+      "*/"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.natanalves.bsc"
+    },
+    "android": {
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.DETECT_SCREEN_CAPTURE"
+      ],
+      "package": "com.natanalves.bsc"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "50144cbe-2eab-4de4-ab36-fafa77f03fc5"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/50144cbe-2eab-4de4-ab36-fafa77f03fc5"
+    }
+  }
+}
