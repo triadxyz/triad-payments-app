@@ -11,7 +11,7 @@ export default function Page() {
   }
 
   return (
-    <View className={cn("flex-1 flex-col justify-center bg-black", Platform.OS === "android" ? "pt-8" : "")}>
+    <View className={cn("flex-1 flex-col justify-center bg-white", Platform.OS === "android" ? "pt-8" : "pt-0")}>
       <Header />
     </View>
   );

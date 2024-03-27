@@ -38,7 +38,7 @@ export default function ModalSheet({
           onPress={() => {
             setOpenModal(false);
           }}
-          className="bg-black opacity-70 w-full fixed inset-0 z-10 flex-1"
+          className="bg-white opacity-70 w-full fixed inset-0 z-10 flex-1"
         ></TouchableOpacity>
       )}
       <View className="w-full h-[60%] bg-white mt-auto rounded-t-3xl z-20 absolute bottom-0 inset-0">

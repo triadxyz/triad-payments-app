@@ -38,8 +38,8 @@ export default function Layout() {
   }
 
   return (
-      <SafeAreaView onLayout={onLayoutRootView} className={cn("flex-1 bg-black", Platform.OS !== 'ios' && "pt-10")}>
-        <StatusBar backgroundColor="#000" style="dark" />
+      <SafeAreaView onLayout={onLayoutRootView} className={cn("flex-1 bg-white", Platform.OS === 'ios' ? 'pt-0' : "pt-10")}>
+        <StatusBar backgroundColor="#fff" style="dark" />
         <UserProvider>
         <Stack
           screenOptions={{
@@ -50,7 +50,6 @@ export default function Layout() {
         >
           <Stack.Screen name="index" options={{}} />
           <Stack.Screen name="login/index" options={{}} />
-          <Stack.Screen name="register/index" options={{}} />
           <Stack.Screen name="home/index" options={{}} />
           <Stack.Screen name="call/index" options={{}} />
         </Stack>

@@ -6,10 +6,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#1B1B1C",
+        blue_200: "#3961FB",
+        blue_100: "#EBEFFF",
+        gray_100: "#606E85",
+        gray_200: "#F0F0F0",
+        green_400: "#00B471",
+        green_op: "#00B4711A",
+        red_400: "#EA3943",
+        red_op: "#EA39431A",
+        dark: "#0C131F",
         baseGray: "#323233",
         dark_100: "#252526",
-        gray_100: "#939599",
         red_100: "#FF5555",
         red_150: "#FF6C6C",
         red_200: "#932020",

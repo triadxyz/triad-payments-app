@@ -6,7 +6,7 @@ type ButtonProps = {
   onPress: () => void;
   children?: React.ReactNode;
   variant?: "contained" | "outlined";
-  theme?: "blue" | "white";
+  theme?: "transparent" | "blue" | "black";
   text?: string;
   loading?: boolean;
   className?: string;
@@ -16,7 +16,7 @@ type ButtonProps = {
 export default function Button({
   onPress,
   variant = "contained",
-  theme = "white",
+  theme = "transparent",
   children,
   loading,
   text,
@@ -25,9 +25,19 @@ export default function Button({
 }: ButtonProps) {
   const variants = {
     theme: {
+      transparent: {
+        contained: {
+          button: "bg-transparent",
+          text: "",
+        },
+        outlined: {
+          button: "border-0",
+          text: "",
+        },
+      },
       blue: {
         contained: {
-          button: "bg-primary text-primary",
+          button: "bg-blue_200 text-white",
           text: "text-white",
         },
         outlined: {
@@ -35,14 +45,14 @@ export default function Button({
           text: "text-primary",
         },
       },
-      white: {
+      black: {
         contained: {
-          button: "bg-white",
-          text: "text-black",
+          button: "bg-black",
+          text: "text-white",
         },
         outlined: {
-          button: "border border-white",
-          text: "text-white",
+          button: "border border-black",
+          text: "text-black",
         },
       },
     },
@@ -52,7 +62,7 @@ export default function Button({
     <TouchableOpacity
       onPress={() => onPress()}
       className={cn(
-        "rounded-lg flex items-center justify-center h-12",
+        "rounded-full flex items-center justify-center h-12",
         variants.theme[theme][variant].button,
         className
       )}

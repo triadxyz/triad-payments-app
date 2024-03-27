@@ -1,21 +1,20 @@
 import {
-  Platform,
   View,
   Text,
-  ImageBackground,
   TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import { cn } from "../../src/utils/cn";
 import { useUser } from "../../src/context/User";
-import { SafeAreaView } from "react-native-safe-area-context";
-import ServicesList from "../../src/components/ServicesList";
-import ProfileCard from "../../src/components/ProfileCard";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import { Company } from "../../src/types";
 import { router } from "expo-router";
-import IconLogout from "../../src/components/Icons/IconLogout";
+import Button from "../../src/components/Base/Button";
+import IconPhantom from "../../src/components/Icons/IconPhantom";
+import CardToken from "../../src/components/CardToken";
 
 export default function Home() {
   const { user, setUser } = useUser();
@@ -55,44 +54,78 @@ export default function Home() {
   };
 
   return (
-    <SafeAreaView
-      className={cn(
-        "flex-1 flex-col justify-between bg-black",
-        Platform.OS === "android" ? "pt-8" : ""
-      )}
-    >
+    <SafeAreaView className={cn("flex-1 bg-white")}>
       <View className="px-4">
         <View className="flex-row justify-between items-center">
-          <View>
-            <Text className="text-white opacity-70 text-sm">Bem-Vindo(a)</Text>
-            <Text className="text-white text-2xl font-bold">{user?.name}</Text>
-          </View>
+          <Button className="h-auto" onPress={() => console.log("phantom")}>
+            {<IconPhantom />}
+          </Button>
 
           <TouchableOpacity
-            className="flex-row items-center"
+            className="flex-row items-center rounded-full bg-blue_100 h-8 px-3"
             onPress={handleLogout}
           >
-            <Text className="text-red_150 opacity-80 font-medium mr-2">
-              Sair
+            <Text className="text-blue_200 font-medium mr-2">
+              🎉 Ganhe recompensas
             </Text>
-            <IconLogout />
           </TouchableOpacity>
         </View>
 
-        <ProfileCard
-          CompanyName={companyDetails?.name || ""}
-          loading={loading}
-          CompanyAddress={companyDetails?.address || ""}
-        />
+        <Text className="text-base text-gray_100 mt-4">Saldo da conta</Text>
+        <Text className="text-3xl text-dark font-bold">3,524.92 USD</Text>
+
+        <ScrollView
+          className="mt-6"
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          {MOCK_TOKENS.map((item, index) => (
+            <CardToken key={index} data={item} />
+          ))}
+        </ScrollView>
+
+        <View className="flex-row items-center justify-between mt-12">
+          <Text className="text-dark text-base font-medium">Últimas transações</Text>
+          <Text className="text-blue_200 text-sm font-medium">Ver tudo</Text>
+        </View>
+
+        
       </View>
-
-      <ImageBackground
-        source={require("../../assets/img/blur.png")}
-        className="absolute top-28 left-0 right-0 bottom-0 z-0 h-full w-full"
-        blurRadius={20}
-      />
-
-      <ServicesList />
     </SafeAreaView>
   );
 }
+
+//
+// utils
+//
+
+const MOCK_TOKENS = [
+  {
+    name: "Pyth",
+    icon: require("../../assets/icon.png"),
+    amount: 100,
+    amountInUsd: 104,
+    pnl: 10,
+  },
+  {
+    name: "Pyth",
+    icon: require("../../assets/icon.png"),
+    amount: 100,
+    amountInUsd: 104,
+    pnl: 10,
+  },
+  {
+    name: "Pyth",
+    icon: require("../../assets/icon.png"),
+    amount: 100,
+    amountInUsd: 104,
+    pnl: 10,
+  },
+  {
+    name: "Pyth",
+    icon: require("../../assets/icon.png"),
+    amount: 100,
+    amountInUsd: 104,
+    pnl: 10,
+  },
+];

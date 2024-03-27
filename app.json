@@ -9,7 +9,7 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "splash": {
-      "resizeMode": "cover",
+      "resizeMode": "contain",
       "backgroundColor": "#fff",
       "image": "./assets/splash.png"
     },
