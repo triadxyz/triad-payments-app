@@ -1,4 +1,4 @@
-# BSC
+# Triad Payments App
 
 ## Description
 
